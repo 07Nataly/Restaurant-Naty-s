@@ -1,0 +1,173 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.restaurantnatys;
+
+/**
+ *
+ * @author USUARIO
+ */
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Cocina {
+    private List<Pedido> pedPendientes;
+    private ArrayList<String> ingredientesDisponibles;
+    private ArrayList<Integer> cantidadesDisponibles;
+
+    public Cocina() {
+        pedPendientes = new ArrayList<>();
+        ingredientesDisponibles = new ArrayList<>();
+        cantidadesDisponibles = new ArrayList<>();
+    }
+
+    // ✅ Inicializa el inventario con todos los proveedores del menú
+    public void inicializarInventarioDesdeMenu(Menu menu) {
+        for (Proveedor prov : menu.getProveedores()) {
+            recibirIngredientes(prov);
+        }
+        System.out.println("\n✅ Inventario inicial cargado desde los proveedores.\n");
+    }
+
+    // ✅ Recibir pedido
+    public void reciPedido(Pedido p) {
+        pedPendientes.add(p);
+        System.out.println("Pedido #" + p.getIdPedido() + " recibido en cocina.");
+    }
+
+    // ✅ Marcar pedido listo y descontar ingredientes
+    public void marPedList(int idPedido, Menu menu) {
+        for (Pedido p : pedPendientes) {
+            if (p.getIdPedido() == idPedido) {
+                System.out.println("\n✅ Pedido #" + idPedido + " marcado como listo.");
+                usarIngredientesPedido(p, menu);
+                pedPendientes.remove(p);
+                break;
+            }
+        }
+    }
+
+    // ✅ Mostrar pedidos pendientes
+    public void mostPediPends() {
+        if (pedPendientes.isEmpty()) {
+            System.out.println("No hay pedidos pendientes.");
+        } else {
+            for (Pedido p : pedPendientes) {
+                System.out.println("Pedido #" + p.getIdPedido() + " - Estado: " + p.getEstado());
+            }
+        }
+    }
+
+    // ✅ Recibir ingredientes de un proveedor
+    public void recibirIngredientes(Proveedor proveedor) {
+        ArrayList<String> ingProv = proveedor.getIngredientes();
+        ArrayList<Integer> cantProv = proveedor.getCantidades();
+
+        for (int i = 0; i < ingProv.size(); i++) {
+            String ingrediente = ingProv.get(i);
+            int cantidad = cantProv.get(i);
+
+            int index = ingredientesDisponibles.indexOf(ingrediente);
+            if (index != -1) {
+                cantidadesDisponibles.set(index, cantidadesDisponibles.get(index) + cantidad);
+            } else {
+                ingredientesDisponibles.add(ingrediente);
+                cantidadesDisponibles.add(cantidad);
+            }
+        }
+    }
+
+    // ✅ Mostrar inventario (solo el administrador puede ver)
+    public void mostrarInventario() {
+        System.out.println("\n=== Inventario de la Cocina ===");
+        if (ingredientesDisponibles.isEmpty()) {
+            System.out.println("⚠️ Inventario vacío. Debe comprar ingredientes a los proveedores.");
+        } else {
+            for (int i = 0; i < ingredientesDisponibles.size(); i++) {
+                System.out.println("- " + ingredientesDisponibles.get(i) + ": " + cantidadesDisponibles.get(i) + " unidades");
+            }
+        }
+        System.out.println("===============================\n");
+    }
+
+    // ✅ Usar ingredientes del inventario
+    public boolean usarIngrediente(String ingrediente, int cantidad) {
+        int index = ingredientesDisponibles.indexOf(ingrediente);
+        if (index != -1 && cantidadesDisponibles.get(index) >= cantidad) {
+            cantidadesDisponibles.set(index, cantidadesDisponibles.get(index) - cantidad);
+            return true;
+        } else {
+            System.out.println("❌ No hay suficiente " + ingrediente + " en inventario.");
+            return false;
+        }
+    }
+
+    // ✅ Preparar pedido (solo si hay ingredientes)
+    public void usarIngredientesPedido(Pedido pedido, Menu menu) {
+        System.out.println("\n🔪 Preparando pedido #" + pedido.getIdPedido() + "...");
+
+        for (ItemPedido item : pedido.getListaItems()) {
+            String nombre = item.getNomProducto().toLowerCase().trim();
+            int cantidad = item.getCantidad();
+            boolean suficiente = true;
+
+            if (nombre.contains("hamburguesa")) {
+                suficiente &= usarIngrediente("Pan de hamburguesa", cantidad);
+                suficiente &= usarIngrediente("Carne de res", cantidad);
+                suficiente &= usarIngrediente("Queso", cantidad);
+            } else if (nombre.contains("perro")) {
+                suficiente &= usarIngrediente("Pan perro caliente", cantidad);
+                suficiente &= usarIngrediente("Salchicha", cantidad);
+            } else if (nombre.contains("papa")) {
+                suficiente &= usarIngrediente("Papas criollas", cantidad);
+            } else if (nombre.contains("gaseosa")) { 
+                if (nombre.contains("cola")) usarIngrediente("Gaseosa cola", cantidad);
+                else if (nombre.contains("manzana")) usarIngrediente("Gaseosa manzana", cantidad);
+                else if (nombre.contains("naranja")) usarIngrediente("Gaseosa naranja", cantidad);
+                else usarIngrediente("Gaseosa cola", cantidad);
+            } else if (nombre.contains("nugget") || nombre.contains("pollo")) {
+                suficiente &= usarIngrediente("Pollo fresco", cantidad);
+            } else {
+                System.out.println("⚠️ Producto '" + item.getNomProducto() + "' no tiene ingredientes definidos.");
+            }
+
+            // Si faltan ingredientes, el pedido no se puede preparar
+            if (!suficiente) {
+                System.out.println(" No se puede preparar el pedido. Faltan ingredientes.");
+                return;
+            }
+        }
+
+        System.out.println("\nInventario actualizado después del pedido:");
+        mostrarInventario();
+    }
+
+    // ✅ Comprar ingredientes (solo el admin)
+    public void comprarIngredientes(Menu menu) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nDesea comprar ingredientes a un proveedor? (s/n): ");
+        String opcion = sc.nextLine();
+
+        if (opcion.equalsIgnoreCase("s")) {
+            menu.mostrarProveedores();
+            System.out.print("Ingrese el número del proveedor a contactar (1-" + menu.getProveedores().size() + "): ");
+            int num = sc.nextInt();
+            sc.nextLine();
+            if (num >= 1 && num <= menu.getProveedores().size()) {
+                recibirIngredientes(menu.getProveedores().get(num - 1));
+                System.out.println("✅ Ingredientes comprados correctamente.");
+            } else {
+                System.out.println("Número inválido. No se realizó la compra.");
+            }
+        } else {
+            System.out.println("No se compraron ingredientes.");
+        }
+    }
+
+    // ✅ Verifica si hay inventario cargado
+    public boolean hayInventario() {
+        return !ingredientesDisponibles.isEmpty();
+    }
+}

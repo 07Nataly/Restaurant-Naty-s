@@ -1,0 +1,46 @@
+Pedido #1 - Cliente: Nataly - Total: $57000.0 - Método: Efec - Fecha: Wed Oct 29 19:54:11 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $16000.0 - Método: efectivo - Fecha: Wed Oct 29 21:07:40 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: NAt - Total: $28000.0 - Método: efectivo - Fecha: Wed Oct 29 21:23:55 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: victor - Total: $32000.0 - Método: tarjeta - Fecha: Thu Oct 30 08:31:25 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: nataly - Total: $180000.0 - Método: tarjeta - Fecha: Thu Oct 30 15:15:05 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: fghjk - Total: $48000.0 - Método: efectivo - Fecha: Wed Nov 05 22:26:36 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: luis - Total: $1210000.0 - Método: tarjeta - Fecha: Thu Nov 06 08:10:10 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $180000.0 - Método: efectivo - Fecha: Sat Nov 08 19:22:57 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $212000.0 - Método: efectivo - Fecha: Sat Nov 08 19:36:28 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $220000.0 - Método: efectivo - Fecha: Sat Nov 08 20:14:58 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $39000.0 - Método: efectivo - Fecha: Sat Nov 08 20:24:15 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $32000.0 - Método: efectivo - Fecha: Mon Nov 10 20:49:20 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $63000.0 - Método: tarjeta - Fecha: Mon Nov 10 21:11:51 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $91000.0 - Método: tarjeta - Fecha: Mon Nov 10 21:22:26 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: fghj - Total: $132000.0 - Método: tarjeta - Fecha: Mon Nov 10 22:25:00 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $12000.0 - Método: tarjeta - Fecha: Tue Nov 11 09:01:25 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $32000.0 - Método: efectivo - Fecha: Tue Nov 11 10:23:01 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $20000.0 - Método: Efectivo - Fecha: Wed Nov 12 21:46:21 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Naty - Total: $0.0 - Método: Efectivo - Fecha: Wed Nov 12 22:48:48 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $0.0 - Método: Efectivo - Fecha: Wed Nov 12 23:07:01 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $0.0 - Método: Efectivo - Fecha: Wed Nov 12 23:07:14 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $8000.0 - Método: Efectivo - Fecha: Wed Nov 12 23:22:48 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $10000.0 - Método: Efectivo - Fecha: Wed Nov 12 23:31:33 COT 2025
+---------------------------------------------------------
