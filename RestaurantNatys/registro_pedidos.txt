@@ -1,8 +1,0 @@
-Pedido #1 - Cliente: Nataly - Total: $57000.0 - Método: Efec - Fecha: Wed Oct 29 19:54:11 COT 2025
----------------------------------------------------------
-Pedido #1 - Cliente: Nataly - Total: $12000.0 - Método: no quiero pagar - Fecha: Wed Oct 29 20:37:37 COT 2025
----------------------------------------------------------
-Pedido #1 - Cliente: Nataly - Total: $16000.0 - Método: efectivo - Fecha: Wed Oct 29 21:07:40 COT 2025
----------------------------------------------------------
-Pedido #1 - Cliente: NAt - Total: $28000.0 - Método: efectivo - Fecha: Wed Oct 29 21:23:55 COT 2025
----------------------------------------------------------
