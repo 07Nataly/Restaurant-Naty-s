@@ -44,3 +44,9 @@ Pedido #1 - Cliente: Lex - Total: $8000.0 - Método: Efectivo - Fecha: Wed Nov 12
 ---------------------------------------------------------
 Pedido #1 - Cliente: Nat - Total: $10000.0 - Método: Efectivo - Fecha: Wed Nov 12 23:31:33 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Nataly - Total: $44000.0 - Método: efectivo - Fecha: Thu Nov 13 09:17:57 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $10000.0 - Método: Efectivo - Fecha: Mon Nov 17 20:15:06 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Lex - Total: $12000.0 - Método: Efectivo - Fecha: Mon Nov 17 20:15:47 COT 2025
+---------------------------------------------------------
