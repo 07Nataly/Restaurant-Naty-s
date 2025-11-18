@@ -29,10 +29,12 @@ public class VentanPedido extends javax.swing.JFrame {
         cocina= new Cocina();
         cocina.inicializarInventarioDesdeMenu(menu);
         
+        //Cantidad del pedido
         SpinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
 
 
 
+        //Lenar ComboBox con menu
         ComboProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
             "Hamburguesa Clasica (Carne de res, Pan, Queso)",
             "Perro Caliente",
@@ -214,6 +216,7 @@ public class VentanPedido extends javax.swing.JFrame {
         String nombre = txtNombre.getText().trim();
         String documento = txtDocumento.getText().trim();
 
+        //Verificar campo
         if (nombre.isEmpty() || documento.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
             return;
@@ -249,11 +252,13 @@ public class VentanPedido extends javax.swing.JFrame {
         int cantidad = (int) SpinnerCantidad.getValue();
 
         ItemPedido item = null;
+        
+        //Busca en lista de productos
         for (ItemPedido prod : menu.getProductos()) {
 
             System.out.println("'" + prod.getNomProducto() + "'");
 
-            
+            //Comparar nombre producto
             if (prod.getNomProducto().equalsIgnoreCase(producto)) {
                 item = new ItemPedido(prod.getNomProducto(), cantidad, prod.getPrecioUni());
                 pedido.agregarItem(item);
@@ -268,6 +273,7 @@ public class VentanPedido extends javax.swing.JFrame {
         cocina.reciPedido(pedido);
         cocina.marPedList(pedido.getIdPedido(), menu);
 
+        //Detalles del pedido
         JOptionPane.showMessageDialog(this,
         "Pedido realizado con éxito.\n" +
         "Cliente: " + cliente.getNombre() + "\n" +
