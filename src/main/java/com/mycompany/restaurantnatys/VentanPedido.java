@@ -10,6 +10,7 @@ package com.mycompany.restaurantnatys;
  */ 
 import javax.swing.JOptionPane;
 
+
 public class VentanPedido extends javax.swing.JFrame {
 
     private Cliente cliente;
@@ -27,14 +28,17 @@ public class VentanPedido extends javax.swing.JFrame {
         menu = new Menu();
         cocina= new Cocina();
         cocina.inicializarInventarioDesdeMenu(menu);
+        
+        SpinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
+
 
 
         ComboProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
-            "Hamburguesa Clásica",
+            "Hamburguesa Clasica (Carne de res, Pan, Queso)",
             "Perro Caliente",
-            "Papas Fritas",
-            "Gaseosa",
-            "Nuggets de Pollo"
+            "Papas Fritas (Papas criollas)",
+            "Gaseosa (Cola o Naranja)",
+            "Nuggets de Pollo (Pollo fresco)"
         }));
     }
 
@@ -58,6 +62,8 @@ public class VentanPedido extends javax.swing.JFrame {
         btnRegistrarCliente = new javax.swing.JButton();
         btnPedido = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        SpinnerCantidad = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurant Naty's");
@@ -121,28 +127,40 @@ public class VentanPedido extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/restaurantnatys/foto.png"))); // NOI18N
 
+        SpinnerCantidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel2.setText("Cantidad");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Documento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(btnRegistrarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPedido)
                 .addGap(103, 103, 103))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Documento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +179,11 @@ public class VentanPedido extends javax.swing.JFrame {
                         .addComponent(Producto)
                         .addGap(18, 18, 18)
                         .addComponent(ComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrarCliente)
                             .addComponent(btnPedido))
@@ -180,7 +202,7 @@ public class VentanPedido extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
+                .addGap(0, 8, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -224,24 +246,35 @@ public class VentanPedido extends javax.swing.JFrame {
         String producto = ComboProducto.getSelectedItem().toString();
         Pedido pedido = new Pedido(1, cliente);
 
+        int cantidad = (int) SpinnerCantidad.getValue();
+
         ItemPedido item = null;
         for (ItemPedido prod : menu.getProductos()) {
-            if (prod.getNomProducto().toLowerCase().contains(producto.toLowerCase())) {
-                item = new ItemPedido(prod.getNomProducto(), 1, prod.getPrecioUni());
+
+            System.out.println("'" + prod.getNomProducto() + "'");
+
+            
+            if (prod.getNomProducto().equalsIgnoreCase(producto)) {
+                item = new ItemPedido(prod.getNomProducto(), cantidad, prod.getPrecioUni());
                 pedido.agregarItem(item);
                 break;
             }
         }
+
+
+        System.out.println("Item encontrado: " + (item != null ? "SI" : "NO"));
 
         pedido.calcularTotal();
         cocina.reciPedido(pedido);
         cocina.marPedList(pedido.getIdPedido(), menu);
 
         JOptionPane.showMessageDialog(this,
-            "Pedido realizado con éxito.\n" +
-            "Cliente: " + cliente.getNombre() + "\n" +
-            "Producto: " + producto + "\n" +
-            "Total: $" + pedido.getTotal());
+        "Pedido realizado con éxito.\n" +
+        "Cliente: " + cliente.getNombre() + "\n" +
+        "Producto: " + producto + "\n" +
+        "Cantidad: " + cantidad + "\n" +
+        "Total: $" + pedido.getTotal());
+
 
         Mesa mesa = new Mesa(1);
         Pago pago = new Pago(1, pedido.getTotal(), "Efectivo");
@@ -295,9 +328,11 @@ public class VentanPedido extends javax.swing.JFrame {
     private javax.swing.JLabel Documento;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Producto;
+    private javax.swing.JSpinner SpinnerCantidad;
     private javax.swing.JButton btnPedido;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField txtDocumento;
