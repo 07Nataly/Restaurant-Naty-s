@@ -47,6 +47,7 @@ public class VentanPedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         Nombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -298,6 +299,7 @@ public class VentanPedido extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

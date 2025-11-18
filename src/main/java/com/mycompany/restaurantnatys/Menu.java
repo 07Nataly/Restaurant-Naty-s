@@ -32,6 +32,7 @@ class Menu {
         Proveedor provCarne = new Proveedor("Carnes Don Pedro", "1001");
         provCarne.agregarIngrediente("Carne de res", 50);
         provCarne.agregarIngrediente("Tocino", 30);
+        provCarne.agregarIngrediente("Salchicha",30);
        
        
 
@@ -51,7 +52,7 @@ class Menu {
         provPollo.agregarIngrediente("Pechugas trozadas", 50);
         
         Proveedor provQueso = new Proveedor("Proveedor de Queso","1005");
-        provQueso.agregarIngrediente("Queso", 30); // 🧀 AGREGADO
+        provQueso.agregarIngrediente("Queso", 30); //AGREGADO
 
 
 
@@ -65,8 +66,8 @@ class Menu {
 
         // Crear productos del menú y asociarlos mentalmente a los proveedores
         productos = new ArrayList<>();
-        productos.add(new ItemPedido("Hamburguesa Clásica (Carne de res, Pan, Queso)", 1, 12000)); // provCarne + provPan
-        productos.add(new ItemPedido("Perro Caliente (Salchicha, Pan, Salsas)", 1, 10000));        // provPan
+        productos.add(new ItemPedido("Hamburguesa Clasica (Carne de res, Pan, Queso)", 1, 12000)); // provCarne + provPan
+        productos.add(new ItemPedido("Perro Caliente", 1, 10000));                                  // provPan
         productos.add(new ItemPedido("Papas Fritas (Papas criollas)", 1, 8000));                   // provPapas
         productos.add(new ItemPedido("Gaseosa (cola o naranja)", 1, 4000));                       // provGaseosa
         productos.add(new ItemPedido("Nuggets de Pollo (Pollo fresco)", 1, 9000));                 // provPollo

@@ -23,25 +23,25 @@ class Cocina {
         cantidadesDisponibles = new ArrayList<>();
     }
 
-    // ✅ Inicializa el inventario con todos los proveedores del menú
+    // Inicializa el inventario con todos los proveedores del menú
     public void inicializarInventarioDesdeMenu(Menu menu) {
         for (Proveedor prov : menu.getProveedores()) {
             recibirIngredientes(prov);
         }
-        System.out.println("\n✅ Inventario inicial cargado desde los proveedores.\n");
+        System.out.println("\nInventario inicial cargado desde los proveedores.\n");
     }
 
-    // ✅ Recibir pedido
+    //  Recibir pedido
     public void reciPedido(Pedido p) {
         pedPendientes.add(p);
         System.out.println("Pedido #" + p.getIdPedido() + " recibido en cocina.");
     }
 
-    // ✅ Marcar pedido listo y descontar ingredientes
+    // Marcar pedido listo y descontar ingredientes
     public void marPedList(int idPedido, Menu menu) {
         for (Pedido p : pedPendientes) {
             if (p.getIdPedido() == idPedido) {
-                System.out.println("\n✅ Pedido #" + idPedido + " marcado como listo.");
+                System.out.println("\n Pedido #" + idPedido + " marcado como listo.");
                 usarIngredientesPedido(p, menu);
                 pedPendientes.remove(p);
                 break;
@@ -49,7 +49,7 @@ class Cocina {
         }
     }
 
-    // ✅ Mostrar pedidos pendientes
+    //  Mostrar pedidos pendientes
     public void mostPediPends() {
         if (pedPendientes.isEmpty()) {
             System.out.println("No hay pedidos pendientes.");
@@ -60,7 +60,7 @@ class Cocina {
         }
     }
 
-    // ✅ Recibir ingredientes de un proveedor
+    //  Recibir ingredientes de un proveedor
     public void recibirIngredientes(Proveedor proveedor) {
         ArrayList<String> ingProv = proveedor.getIngredientes();
         ArrayList<Integer> cantProv = proveedor.getCantidades();
@@ -79,11 +79,11 @@ class Cocina {
         }
     }
 
-    // ✅ Mostrar inventario (solo el administrador puede ver)
+    //  Mostrar inventario (solo el administrador puede ver)
     public void mostrarInventario() {
         System.out.println("\n=== Inventario de la Cocina ===");
         if (ingredientesDisponibles.isEmpty()) {
-            System.out.println("⚠️ Inventario vacío. Debe comprar ingredientes a los proveedores.");
+            System.out.println("Inventario vacío. Debe comprar ingredientes a los proveedores.");
         } else {
             for (int i = 0; i < ingredientesDisponibles.size(); i++) {
                 System.out.println("- " + ingredientesDisponibles.get(i) + ": " + cantidadesDisponibles.get(i) + " unidades");
@@ -92,21 +92,21 @@ class Cocina {
         System.out.println("===============================\n");
     }
 
-    // ✅ Usar ingredientes del inventario
+    //  Usar ingredientes del inventario
     public boolean usarIngrediente(String ingrediente, int cantidad) {
         int index = ingredientesDisponibles.indexOf(ingrediente);
         if (index != -1 && cantidadesDisponibles.get(index) >= cantidad) {
             cantidadesDisponibles.set(index, cantidadesDisponibles.get(index) - cantidad);
             return true;
         } else {
-            System.out.println("❌ No hay suficiente " + ingrediente + " en inventario.");
+            System.out.println("No hay suficiente " + ingrediente + " en inventario.");
             return false;
         }
     }
 
-    // ✅ Preparar pedido (solo si hay ingredientes)
+    //  Preparar pedido (solo si hay ingredientes)
     public void usarIngredientesPedido(Pedido pedido, Menu menu) {
-        System.out.println("\n🔪 Preparando pedido #" + pedido.getIdPedido() + "...");
+        System.out.println("\nPreparando pedido #" + pedido.getIdPedido() + "...");
 
         for (ItemPedido item : pedido.getListaItems()) {
             String nombre = item.getNomProducto().toLowerCase().trim();
@@ -130,7 +130,7 @@ class Cocina {
             } else if (nombre.contains("nugget") || nombre.contains("pollo")) {
                 suficiente &= usarIngrediente("Pollo fresco", cantidad);
             } else {
-                System.out.println("⚠️ Producto '" + item.getNomProducto() + "' no tiene ingredientes definidos.");
+                System.out.println("Producto '" + item.getNomProducto() + "' no tiene ingredientes definidos.");
             }
 
             // Si faltan ingredientes, el pedido no se puede preparar
@@ -140,11 +140,11 @@ class Cocina {
             }
         }
 
-        System.out.println("\nInventario actualizado después del pedido:");
+        System.out.println("\nInventario actualizado despues del pedido:");
         mostrarInventario();
     }
 
-    // ✅ Comprar ingredientes (solo el admin)
+    //  Comprar ingredientes (solo el admin)
     public void comprarIngredientes(Menu menu) {
         Scanner sc = new Scanner(System.in);
         System.out.println("\nDesea comprar ingredientes a un proveedor? (s/n): ");
@@ -152,21 +152,21 @@ class Cocina {
 
         if (opcion.equalsIgnoreCase("s")) {
             menu.mostrarProveedores();
-            System.out.print("Ingrese el número del proveedor a contactar (1-" + menu.getProveedores().size() + "): ");
+            System.out.print("Ingrese el numero del proveedor a contactar (1-" + menu.getProveedores().size() + "): ");
             int num = sc.nextInt();
             sc.nextLine();
             if (num >= 1 && num <= menu.getProveedores().size()) {
                 recibirIngredientes(menu.getProveedores().get(num - 1));
-                System.out.println("✅ Ingredientes comprados correctamente.");
+                System.out.println("Ingredientes comprados correctamente.");
             } else {
-                System.out.println("Número inválido. No se realizó la compra.");
+                System.out.println("Numero invalido. No se realizo la compra.");
             }
         } else {
             System.out.println("No se compraron ingredientes.");
         }
     }
 
-    // ✅ Verifica si hay inventario cargado
+    //Verifica si hay inventario cargado
     public boolean hayInventario() {
         return !ingredientesDisponibles.isEmpty();
     }
