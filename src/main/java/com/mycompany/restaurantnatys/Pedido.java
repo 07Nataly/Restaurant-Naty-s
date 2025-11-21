@@ -15,18 +15,19 @@ import java.util.List;
     
   class Pedido implements Imprimible {
     
-    private static int contadorPedidos = 1; // contador automático
+    public static int contadorPedidos = 1; // contador automático
     private int idPedido;
     private List<ItemPedido> listaItems; // Productos del pedido
     private double total;
     private String estado;
     private Cliente cliente;
 
-   public Pedido(int idPedido, Cliente cliente) {
-        this.idPedido = idPedido;
+   public Pedido(Cliente cliente) {
+        this.idPedido = contadorPedidos++;  // ID automatico
         this.cliente = cliente;
         this.listaItems = new ArrayList<>();
         this.estado = "En cocina";
+        this.total = 0.0;
     }
 
     public int getIdPedido() { return idPedido; }

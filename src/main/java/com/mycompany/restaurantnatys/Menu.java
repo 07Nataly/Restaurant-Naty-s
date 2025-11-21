@@ -46,6 +46,7 @@ class Menu {
         Proveedor provGaseosa = new Proveedor("Bebidas El Refrescón", "1004");
         provGaseosa.agregarIngrediente("Gaseosa cola", 60);
         provGaseosa.agregarIngrediente("Gaseosa naranja", 40);
+        provGaseosa.agregarIngrediente("Gaseosa manzana", 40);
 
         Proveedor provPollo = new Proveedor("Avícola Santa Fe", "1005");
         provPollo.agregarIngrediente("Pollo fresco", 70);
@@ -69,7 +70,7 @@ class Menu {
         productos.add(new ItemPedido("Hamburguesa Clasica (Carne de res, Pan, Queso)", 1, 12000)); // provCarne + provPan
         productos.add(new ItemPedido("Perro Caliente", 1, 10000));                                  // provPan
         productos.add(new ItemPedido("Papas Fritas (Papas criollas)", 1, 8000));                   // provPapas
-        productos.add(new ItemPedido("Gaseosa (cola, naranja o manzana)", 1, 4000));                       // provGaseosa
+        productos.add(new ItemPedido("Gaseosa ← (Seleccione y elija sabor)", 1, 4000));            // provGaseosa
         productos.add(new ItemPedido("Nuggets de Pollo (Pollo fresco)", 1, 9000));                 // provPollo
     }
 

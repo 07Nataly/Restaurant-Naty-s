@@ -13,14 +13,14 @@ package com.mycompany.restaurantnatys;
 import java.util.Scanner;
 
 class Cliente extends Persona {
-    private static int contadorPedidos = 1;
+    public static int contadorPedidos = 1;
 
     public Cliente(String nombre, String documento) {
         super(nombre, documento);
     }
 
     public Pedido crearPedido(Menu menu) {
-        Pedido pedido = new Pedido(contadorPedidos++, this);
+        Pedido pedido = new Pedido(this);
         Scanner sc = new Scanner(System.in);
         String continuar;
 

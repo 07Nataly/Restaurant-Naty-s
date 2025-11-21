@@ -16,6 +16,7 @@ public class VentanPedido extends javax.swing.JFrame {
     private Cliente cliente;
     private Menu menu;
     private Cocina cocina;
+    private Pedido pedidoActual;
     /**
      * Creates new form VentanPedido
      */
@@ -32,6 +33,9 @@ public class VentanPedido extends javax.swing.JFrame {
         //Cantidad del pedido
         SpinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
 
+        //Hacer invisible al inicio
+        ComboSabor.setVisible(false);        
+        lblSabor.setVisible(false);
 
 
         //Lenar ComboBox con menu
@@ -39,8 +43,14 @@ public class VentanPedido extends javax.swing.JFrame {
             "Hamburguesa Clasica (Carne de res, Pan, Queso)",
             "Perro Caliente",
             "Papas Fritas (Papas criollas)",
-            "Gaseosa (Cola, Naranja o manzana)",
+            "Gaseosa ← (Seleccione y elija sabor)",
             "Nuggets de Pollo (Pollo fresco)"
+        }));
+        
+        ComboSabor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
+        "Cola",
+        "Naranja",
+        "Manzana"
         }));
     }
 
@@ -67,6 +77,8 @@ public class VentanPedido extends javax.swing.JFrame {
         SpinnerCantidad = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         BtnSalir = new javax.swing.JButton();
+        ComboSabor = new javax.swing.JComboBox<>();
+        lblSabor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurant Naty's");
@@ -145,6 +157,14 @@ public class VentanPedido extends javax.swing.JFrame {
             }
         });
 
+        ComboSabor.setBackground(new java.awt.Color(255, 153, 153));
+        ComboSabor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ComboSabor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblSabor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblSabor.setForeground(new java.awt.Color(153, 0, 0));
+        lblSabor.setText("Sabores");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,31 +172,35 @@ public class VentanPedido extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(btnRegistrarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(btnPedido)
                 .addGap(103, 103, 103))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Documento, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(27, 27, 27))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(204, 204, 204)
                 .addComponent(BtnSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ComboProducto, 0, 172, Short.MAX_VALUE)
+                            .addComponent(Producto, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(txtDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(Documento, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(lblSabor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboSabor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,11 +219,15 @@ public class VentanPedido extends javax.swing.JFrame {
                         .addComponent(Producto)
                         .addGap(18, 18, 18)
                         .addComponent(ComboProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addGap(14, 14, 14)
+                        .addComponent(lblSabor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ComboSabor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrarCliente)
                             .addComponent(btnPedido))
@@ -247,61 +275,74 @@ public class VentanPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDocumentoActionPerformed
 
     private void ComboProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboProductoActionPerformed
-        // TODO add your handling code here:
-
+        // TODO add your handling code here:                                           
+      String seleccionado = ComboProducto.getSelectedItem().toString();
+    
+        // Si es gaseosa → mostrar tu ComboSabor bonito del diseño
+        if (seleccionado.toLowerCase().contains("gaseosa")) {
+            lblSabor.setVisible(true);      // Muestra el JLabel "Sabor:"
+            ComboSabor.setVisible(true);     // Muestra tu ComboBox lindo
+        } else {
+            lblSabor.setVisible(false);      // Oculta si es otro producto
+            ComboSabor.setVisible(false);
+        }
         
     }//GEN-LAST:event_ComboProductoActionPerformed
 
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
         // TODO add your handling code here:
         // Verificar que el cliente ya esté registrado
+                                          
         if (cliente == null) {
-            JOptionPane.showMessageDialog(this, "Primero registre al cliente.");
-            return;
-        }
+        JOptionPane.showMessageDialog(this, "Primero registre al cliente.");
+        return;
+    }
 
-        String producto = ComboProducto.getSelectedItem().toString();
-        Pedido pedido = new Pedido(1, cliente);
-
+        String productoTexto = ComboProducto.getSelectedItem().toString();
         int cantidad = (int) SpinnerCantidad.getValue();
-
         ItemPedido item = null;
-        
-        //Busca en lista de productos
-        for (ItemPedido prod : menu.getProductos()) {
 
-            System.out.println("'" + prod.getNomProducto() + "'");
-
-            //Comparar nombre producto
-            if (prod.getNomProducto().equalsIgnoreCase(producto)) {
-                item = new ItemPedido(prod.getNomProducto(), cantidad, prod.getPrecioUni());
-                pedido.agregarItem(item);
-                break;
-            }
+        if (productoTexto.toLowerCase().contains("gaseosa")) {
+            // USA TU COMBOBOX DEL DISEÑO (nada de ventana emergente)
+            String sabor = ComboSabor.getSelectedItem().toString().toLowerCase();
+            String nombreGaseosa = "Gaseosa " + sabor;  // "Gaseosa cola", "Gaseosa manzana", etc.
+            item = new ItemPedido(nombreGaseosa, cantidad, 4000);
+        } else {
+            // Producto normal
+            int indice = ComboProducto.getSelectedIndex();
+            ItemPedido base = menu.getProductos().get(indice);
+            item = new ItemPedido(base.getNomProducto(), cantidad, base.getPrecioUni());
         }
 
+        // Crear o usar pedido actual
+        if (pedidoActual == null) {
+            pedidoActual = new Pedido(cliente);
+        }
+        pedidoActual.agregarItem(item);
+        pedidoActual.calcularTotal();
 
-        System.out.println("Item encontrado: " + (item != null ? "SI" : "NO"));
-
-        pedido.calcularTotal();
-        cocina.reciPedido(pedido);
-        cocina.marPedList(pedido.getIdPedido(), menu);
-
-        //Detalles del pedido
-        JOptionPane.showMessageDialog(this,
-        "Pedido realizado con éxito.\n" +
-        "Cliente: " + cliente.getNombre() + "\n" +
-        "Producto: " + producto + "\n" +
-        "Cantidad: " + cantidad + "\n" +
-        "Total: $" + pedido.getTotal());
-
+        cocina.reciPedido(pedidoActual);
+        cocina.marPedList(pedidoActual.getIdPedido(), menu);
 
         Mesa mesa = new Mesa(1);
-        Pago pago = new Pago(1, pedido.getTotal(), "Efectivo");
-        pago.generarFactura(pedido, mesa, cliente);
-        pago.guardarEnArchivo(pedido, cliente);
+        Pago pago = new Pago(1, pedidoActual.getTotal(), "Efectivo");
+        pago.generarFactura(pedidoActual, mesa, cliente);
+        pago.guardarEnArchivo(pedidoActual, cliente);
 
+        JOptionPane.showMessageDialog(this,
+            "¡PEDIDO COMPLETADO!\n\n" +
+            "Producto: " + item.getNomProducto() + "\n" +
+            "Cantidad: " + cantidad + "\n" +
+            "Total: " + RestaurantNatys.formatoPrecio(pedidoActual.getTotal()),
+            "¡Gracias por su pedido!",
+            JOptionPane.INFORMATION_MESSAGE);
 
+        // Reiniciar campos
+        ComboProducto.setSelectedIndex(0);
+        SpinnerCantidad.setValue(1);
+        lblSabor.setVisible(false);
+        ComboSabor.setVisible(false);
+    
     }//GEN-LAST:event_btnPedidoActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -351,6 +392,7 @@ public class VentanPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSalir;
     private javax.swing.JComboBox<String> ComboProducto;
+    private javax.swing.JComboBox<String> ComboSabor;
     private javax.swing.JLabel Documento;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Producto;
@@ -361,6 +403,7 @@ public class VentanPedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblSabor;
     private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
