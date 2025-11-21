@@ -36,7 +36,7 @@ class Menu {
        
        
 
-        Proveedor provPan = new Proveedor("Panadería La Delicia", "1002");
+        Proveedor provPan = new Proveedor("Panaderia La Delicia", "1002");
         provPan.agregarIngrediente("Pan de hamburguesa", 100);
         provPan.agregarIngrediente("Pan perro caliente", 80);
 
@@ -69,7 +69,7 @@ class Menu {
         productos.add(new ItemPedido("Hamburguesa Clasica (Carne de res, Pan, Queso)", 1, 12000)); // provCarne + provPan
         productos.add(new ItemPedido("Perro Caliente", 1, 10000));                                  // provPan
         productos.add(new ItemPedido("Papas Fritas (Papas criollas)", 1, 8000));                   // provPapas
-        productos.add(new ItemPedido("Gaseosa (cola o naranja)", 1, 4000));                       // provGaseosa
+        productos.add(new ItemPedido("Gaseosa (cola, naranja o manzana)", 1, 4000));                       // provGaseosa
         productos.add(new ItemPedido("Nuggets de Pollo (Pollo fresco)", 1, 9000));                 // provPollo
     }
 

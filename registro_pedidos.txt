@@ -94,3 +94,9 @@ Pedido #1 - Cliente: Naty - Total: $44000.0 - Método: tarjeta - Fecha: Thu Nov 2
 ---------------------------------------------------------
 Pedido #1 - Cliente: sdfghj2 - Total: $24000.0 - Método: tarjeta - Fecha: Thu Nov 20 19:53:28 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: james - Total: $32000.0 - Método: efectivo - Fecha: Thu Nov 20 21:35:51 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $30000.0 - Método: Efectivo - Fecha: Thu Nov 20 21:40:48 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $12000.0 - Método: Efectivo - Fecha: Thu Nov 20 21:40:59 COT 2025
+---------------------------------------------------------

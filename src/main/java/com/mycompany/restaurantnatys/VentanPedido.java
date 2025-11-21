@@ -39,7 +39,7 @@ public class VentanPedido extends javax.swing.JFrame {
             "Hamburguesa Clasica (Carne de res, Pan, Queso)",
             "Perro Caliente",
             "Papas Fritas (Papas criollas)",
-            "Gaseosa (Cola o Naranja)",
+            "Gaseosa (Cola, Naranja o manzana)",
             "Nuggets de Pollo (Pollo fresco)"
         }));
     }
