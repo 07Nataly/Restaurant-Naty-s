@@ -76,7 +76,9 @@ class Cliente extends Persona {
         } while (continuar.equalsIgnoreCase("s"));
 
         pedido.calcularTotal();
+        
         return pedido;
+        
     }
 
     @Override

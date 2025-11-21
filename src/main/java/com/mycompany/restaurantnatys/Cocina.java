@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 class Cocina {
     private List<Pedido> pedPendientes;
-    private ArrayList<String> ingredientesDisponibles;
-    private ArrayList<Integer> cantidadesDisponibles;
+    public ArrayList<String> ingredientesDisponibles;
+    public ArrayList<Integer> cantidadesDisponibles;
 
     public Cocina() {
         pedPendientes = new ArrayList<>();
@@ -41,7 +41,7 @@ class Cocina {
     public void marPedList(int idPedido, Menu menu) {
         for (Pedido p : pedPendientes) {
             if (p.getIdPedido() == idPedido) {
-                System.out.println("\n Pedido #" + idPedido + " marcado como listo.");
+                System.out.println("\n¡Pedido #" + idPedido + " preparado y servido exitosamente!");               
                 usarIngredientesPedido(p, menu);
                 pedPendientes.remove(p);
                 break;
@@ -157,6 +157,8 @@ class Cocina {
             sc.nextLine();
             if (num >= 1 && num <= menu.getProveedores().size()) {
                 recibirIngredientes(menu.getProveedores().get(num - 1));
+                RegistroDiario.agregarMovimiento("ADMIN COMPRA - Proveedor: " + menu.getProveedores().get(num - 1).getNombre() + 
+                    " | Ingredientes recibidos");
                 System.out.println("Ingredientes comprados correctamente.");
             } else {
                 System.out.println("Numero invalido. No se realizo la compra.");

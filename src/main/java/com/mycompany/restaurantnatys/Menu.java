@@ -78,7 +78,7 @@ class Menu {
         System.out.println("\n--- MENU DE COMIDA RAPIDA ---");
         for (int i = 0; i < productos.size(); i++) {
             ItemPedido p = productos.get(i);
-            System.out.println((i + 1) + ". " + p.getNomProducto() + " - $" + p.getPrecioUni());
+            System.out.println((i + 1) + ". " + p.getNomProducto() + " - " + RestaurantNatys.formatoPrecio(p.getPrecioUni()));
         }
     }
 

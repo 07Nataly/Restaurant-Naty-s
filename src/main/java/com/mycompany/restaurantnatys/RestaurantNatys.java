@@ -9,8 +9,14 @@ package com.mycompany.restaurantnatys;
  * @author USUARIO
  */
 import java.util.Scanner;
+import java.util.Date;
 
 public class RestaurantNatys {
+    
+    // Método para precios
+    public static String formatoPrecio(double precio) {
+        return "$" + String.format("%,.0f", precio).replace(",", ".");
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -21,6 +27,8 @@ public class RestaurantNatys {
         cocina.inicializarInventarioDesdeMenu(menu);
 
         int opcion = 0; // <-- Solucion: inicializada en 0
+        
+        RegistroDiario.agregarMovimiento("=== INICIO DEL DÍA EN RESTAURANT NATY'S ===");
 
         do {
             System.out.println("==================================");
@@ -57,7 +65,6 @@ public class RestaurantNatys {
                     mesa.asignarPedido(pedido);
                     cocina.reciPedido(pedido);
                     cocina.marPedList(pedido.getIdPedido(), menu);
-                    cocina.usarIngredientesPedido(pedido,menu);
 
                     // Metodo de pago
                     String metodo;
@@ -73,6 +80,10 @@ public class RestaurantNatys {
                     Pago pago = new Pago(1, pedido.getTotal(), metodo);
                     pago.generarFactura(pedido, mesa, cliente);
                     pago.guardarEnArchivo(pedido, cliente);
+                    
+                    RegistroDiario.agregarMovimiento("PEDIDO COMPLETADO - Cliente: " + cliente.getNombre() + 
+                        " | Total: " + RestaurantNatys.formatoPrecio(pedido.getTotal()) + 
+                        " | Items: " + pedido.getListaItems().size());
 
                     System.out.println("\nPedido completado correctamente.\n");
                     break;
@@ -124,8 +135,13 @@ public class RestaurantNatys {
                     break;
 
                 case 3:
+                    
+                    // Generar reporte diario
+                    ReporteDiario.generarReporteDiario(cocina);
+
                     System.out.println("\nGracias por visitar Restaurant Natys. Vuelva pronto!");
                     break;
+                    
 
                 default:
                     System.out.println("Opcion invalida. Intente de nuevo.\n");

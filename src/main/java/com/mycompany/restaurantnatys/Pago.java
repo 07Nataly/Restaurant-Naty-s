@@ -30,6 +30,8 @@ class Pago implements Imprimible {
         this.metodoPago = metodoPago;
         this.fecha = new Date(); // Fecha actual del pago
     }
+    
+    
 
     // Interfaz Imprimible
     @Override
@@ -93,25 +95,26 @@ class Pago implements Imprimible {
             for (ItemPedido item : pedido.getListaItems()) {
                 tabla.addCell(item.getNomProducto());
                 tabla.addCell(String.valueOf(item.getCantidad()));
-                tabla.addCell("$" + item.getPrecioUni());
-                tabla.addCell("$" + item.calcularSubtotal());
+                tabla.addCell(RestaurantNatys.formatoPrecio(item.getPrecioUni()));
+               tabla.addCell(RestaurantNatys.formatoPrecio(item.calcularSubtotal()));
             }
 
             documento.add(tabla);
+           
 
             // Total final
-            documento.add(new Paragraph("\nTOTAL A PAGAR: $" + pedido.getTotal(), subtituloFont));
+            documento.add(new Paragraph("\nTOTAL A PAGAR: " + RestaurantNatys.formatoPrecio(pedido.getTotal()), subtituloFont));
             documento.add(new Paragraph("\n¡Gracias por visitarnos!️", textoFont));
 
             documento.close();
-            System.out.println("\n✅ Factura PDF generada correctamente: " + nombreArchivo);
+            System.out.println("\n Factura PDF generada correctamente: " + nombreArchivo);
 
         } catch (Exception e) {
-            System.out.println("⚠️ Error al generar la factura: " + e.getMessage());
+            System.out.println(" Error al generar la factura: " + e.getMessage());
         }
     }
 
-    // ✅ Registro en archivo de texto (persistencia)
+    // Registro en archivo de texto (persistencia)
     public void guardarEnArchivo(Pedido pedido, Cliente cliente) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("registro_pedidos.txt", true))) {
             writer.write("Pedido #" + pedido.getIdPedido() + " - Cliente: " + cliente.getNombre() +

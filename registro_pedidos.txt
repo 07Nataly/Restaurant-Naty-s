@@ -86,3 +86,11 @@ Pedido #1 - Cliente: sdfgh - Total: $24000.0 - Método: Efectivo - Fecha: Mon Nov
 ---------------------------------------------------------
 Pedido #1 - Cliente: Lex - Total: $16000.0 - Método: Efectivo - Fecha: Mon Nov 17 23:34:13 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Juan - Total: $30000.0 - Método: Efectivo - Fecha: Thu Nov 20 18:23:53 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $24000.0 - Método: efectivo - Fecha: Thu Nov 20 19:00:03 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Naty - Total: $44000.0 - Método: tarjeta - Fecha: Thu Nov 20 19:44:33 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: sdfghj2 - Total: $24000.0 - Método: tarjeta - Fecha: Thu Nov 20 19:53:28 COT 2025
+---------------------------------------------------------
