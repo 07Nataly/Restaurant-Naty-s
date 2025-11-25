@@ -136,3 +136,13 @@ Pedido #1 - Cliente: nat - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 2
 ---------------------------------------------------------
 Pedido #1 - Cliente: Nat - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 25 14:22:10 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 25 15:38:51 COT 2025
+---------------------------------------------------------
+Pedido #2 - Cliente: nA - Total: $10000.0 - Método: Efectivo - Fecha: Tue Nov 25 15:39:30 COT 2025
+---------------------------------------------------------
+Pedido #2 - Cliente: nA - Total: $18000.0 - Método: Efectivo - Fecha: Tue Nov 25 15:39:36 COT 2025
+---------------------------------------------------------
+Pedido #2 - Cliente: nA - Total: $22000.0 - Método: Efectivo - Fecha: Tue Nov 25 15:39:46 COT 2025
+---------------------------------------------------------
+Pedido #2 - Cliente: nA - Total: $211000.0 - Método: Efectivo - Fecha: Tue Nov 25 15:40:43 COT 2025
+---------------------------------------------------------

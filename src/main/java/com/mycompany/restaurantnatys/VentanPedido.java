@@ -22,7 +22,7 @@ public class VentanPedido extends javax.swing.JFrame {
      */
     public VentanPedido() {
         initComponents();
-         
+          
         setLocationRelativeTo(null); // centramos la ventana
         setTitle("Registro de Cliente y Pedido - Restaurant Naty's");
         
@@ -258,15 +258,36 @@ public class VentanPedido extends javax.swing.JFrame {
         String nombre = txtNombre.getText().trim();
         String documento = txtDocumento.getText().trim();
 
-        //Verificar campo
+        // Validar que los campos no estén vacíos
         if (nombre.isEmpty() || documento.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
+            JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.", 
+                "Campos vacíos", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        cliente = new Cliente(nombre, documento);
-        JOptionPane.showMessageDialog(this, "Cliente registrado correctamente.");
+        // Validar que el documento tenga 10 numeros
+        if (!documento.matches("\\d{10}")) {  // \d{10} = exactamente 10 números
+            JOptionPane.showMessageDialog(this, 
+                "El documento debe tener EXACTAMENTE 10 dígitos numéricos.\n" +
+                "Ejemplo correcto: 1234567890", 
+                "Documento inválido", JOptionPane.ERROR_MESSAGE);
 
+            txtDocumento.requestFocus();   // Pone el cursor de nuevo en el campo
+            txtDocumento.selectAll();      // Selecciona todo 
+            return;
+        }
+
+        //Mnesaje de registro
+        cliente = new Cliente(nombre, documento);
+        JOptionPane.showMessageDialog(this, 
+            "Cliente registrado correctamente:\n" +
+            nombre + " - " + documento, 
+            "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        // Desabilitar boton
+        btnRegistrarCliente.setEnabled(false);
+        btnRegistrarCliente.setText("Cliente Registrado");
+    
 
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
