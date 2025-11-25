@@ -122,3 +122,15 @@ Pedido #1 - Cliente: qwertyuiolmjhgfds - Total: $54000.0 - Método: Efectivo - Fe
 ---------------------------------------------------------
 Pedido #1 - Cliente: qwertyuiolmjhgfds - Total: $654000.0 - Método: Efectivo - Fecha: Tue Nov 25 09:44:08 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $20000.0 - Método: Efectivo - Fecha: Tue Nov 25 11:51:46 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $28000.0 - Método: Efectivo - Fecha: Tue Nov 25 11:52:09 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: jei - Total: $27000.0 - Método: Efectivo - Fecha: Tue Nov 25 13:39:32 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: Nat - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 25 13:56:43 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: A - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 25 14:04:48 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: nat - Total: $12000.0 - Método: Efectivo - Fecha: Tue Nov 25 14:16:11 COT 2025
+---------------------------------------------------------

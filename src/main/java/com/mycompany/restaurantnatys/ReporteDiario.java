@@ -18,6 +18,8 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.itextpdf.text.Image;
+
 public class ReporteDiario {
 
     public static void generarReporteDiario(Cocina cocina) {
@@ -35,10 +37,21 @@ public class ReporteDiario {
             String nombreArchivo = "Registros_Diarios/Reporte_Diario_" + fecha + "_a_las_" + hora + ".pdf";
 
             // ====== 3. GENERAR EL PDF ======
-            Document documento = new Document(PageSize.A4, 50, 50, 50, 50);
-            PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
+            Document documento = new Document(PageSize.A4, 50, 50, 80, 70); // Margen superior
+            PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
             documento.open();
 
+            //Logo
+            try {
+                Image logo = Image.getInstance(ReporteDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
+                logo.scaleAbsolute(90f, 90f);//tamaño logo
+                //posicion
+                logo.setAbsolutePosition(PageSize.A4.getWidth() - 140, PageSize.A4.getHeight() - 115);
+                writer.getDirectContentUnder().addImage(logo);
+            } catch (Exception e) {
+                System.out.println("Logo no cargado: " + e.getMessage());
+            }
+            
             Font titulo = new Font(Font.FontFamily.HELVETICA, 24, Font.BOLD, new BaseColor(139, 0, 0));
             Font subtitulo = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
             Font normal = new Font(Font.FontFamily.HELVETICA, 11);

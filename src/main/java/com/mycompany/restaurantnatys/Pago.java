@@ -56,9 +56,21 @@ class Pago implements Imprimible {
                     System.currentTimeMillis() + ".pdf";
 
             // Crear documento PDF
-            Document documento = new Document(PageSize.A4, 50, 50, 50, 50);
-            PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
+            Document documento = new Document(PageSize.A4, 50, 50, 80, 70); // Margen superior
+            PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
             documento.open();
+            
+            
+            
+            //LOGO 
+            try {
+                Image logo = Image.getInstance(ReporteDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
+                logo.scaleAbsolute(90f, 90f);
+                logo.setAbsolutePosition(PageSize.A4.getWidth() - 140, PageSize.A4.getHeight() - 115);
+                writer.getDirectContentUnder().addImage(logo);
+            } catch (Exception e) {
+                System.out.println("Logo no cargado: " + e.getMessage());
+            }
 
             // Configurar fuentes
             Font tituloFont = new Font(Font.FontFamily.HELVETICA, 22, Font.BOLD, new BaseColor(139, 0, 0));
