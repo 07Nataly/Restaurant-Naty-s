@@ -37,7 +37,7 @@ public class ReporteDiario {
             String nombreArchivo = "Registros_Diarios/Reporte_Diario_" + fecha + "_a_las_" + hora + ".pdf";
 
             // ====== 3. GENERAR EL PDF ======
-            Document documento = new Document(PageSize.A4, 50, 50, 80, 70); // Margen superior
+            Document documento = new Document(PageSize.A4, 50, 50, 90, 70); // Margen superior
             PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
             documento.open();
 
