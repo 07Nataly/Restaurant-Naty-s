@@ -79,7 +79,7 @@ public class ReporteDiario {
             documento.add(tabla);
 
             documento.add(Chunk.NEWLINE);
-            Paragraph cierre = new Paragraph("¡Fin del día exitoso! Gracias por tu trabajo ♥", 
+            Paragraph cierre = new Paragraph("¡Fin del día exitoso! Gracias por tu trabajo ", 
                 new Font(Font.FontFamily.HELVETICA, 12, Font.ITALIC, BaseColor.DARK_GRAY));
             cierre.setAlignment(Element.ALIGN_CENTER);
             documento.add(cierre);

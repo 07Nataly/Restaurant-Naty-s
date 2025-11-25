@@ -22,7 +22,7 @@ public class VentanPedido extends javax.swing.JFrame {
      */
     public VentanPedido() {
         initComponents();
-        
+         
         setLocationRelativeTo(null); // centramos la ventana
         setTitle("Registro de Cliente y Pedido - Restaurant Naty's");
         
@@ -276,17 +276,16 @@ public class VentanPedido extends javax.swing.JFrame {
 
     private void ComboProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboProductoActionPerformed
         // TODO add your handling code here:                                           
-      String seleccionado = ComboProducto.getSelectedItem().toString();
+    String seleccionado = ComboProducto.getSelectedItem().toString();
     
-        // Si es gaseosa → mostrar tu ComboSabor bonito del diseño
+        //Muestra el sabor
         if (seleccionado.toLowerCase().contains("gaseosa")) {
             lblSabor.setVisible(true);      // Muestra el JLabel "Sabor:"
-            ComboSabor.setVisible(true);     // Muestra tu ComboBox lindo
+            ComboSabor.setVisible(true);     
         } else {
             lblSabor.setVisible(false);      // Oculta si es otro producto
             ComboSabor.setVisible(false);
         }
-        
     }//GEN-LAST:event_ComboProductoActionPerformed
 
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
@@ -303,9 +302,9 @@ public class VentanPedido extends javax.swing.JFrame {
         ItemPedido item = null;
 
         if (productoTexto.toLowerCase().contains("gaseosa")) {
-            // USA TU COMBOBOX DEL DISEÑO (nada de ventana emergente)
+            // COMBOBOX DEL DISEÑO 
             String sabor = ComboSabor.getSelectedItem().toString().toLowerCase();
-            String nombreGaseosa = "Gaseosa " + sabor;  // "Gaseosa cola", "Gaseosa manzana", etc.
+            String nombreGaseosa = "Gaseosa " + sabor; 
             item = new ItemPedido(nombreGaseosa, cantidad, 4000);
         } else {
             // Producto normal
@@ -351,7 +350,17 @@ public class VentanPedido extends javax.swing.JFrame {
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        int opcion = JOptionPane.showConfirmDialog(this, 
+        "¿Seguro que desea salir?\n¡Gracias por visitar Restaurant Naty's! ", 
+        "¡Hasta pronto!", 
+        JOptionPane.YES_NO_OPTION, 
+        JOptionPane.INFORMATION_MESSAGE);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            new VentanaInicio().setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     /**

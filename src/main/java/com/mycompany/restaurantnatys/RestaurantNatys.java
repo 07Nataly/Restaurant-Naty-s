@@ -19,6 +19,17 @@ public class RestaurantNatys {
     }
 
     public static void main(String[] args) {
+        
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaInicio().setVisible(true);
+            }
+        });
+
+        
+        
+        
         Scanner sc = new Scanner(System.in);
         Menu menu = new Menu();
         Cocina cocina = new Cocina();
