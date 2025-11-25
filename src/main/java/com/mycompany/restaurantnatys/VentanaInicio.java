@@ -46,7 +46,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(139, 0, 0));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Restauran Natys");
+        lblTitulo.setText("Restaurant Naty's");
 
         lblSubtitulo.setFont(new java.awt.Font("Arial", 2, 18)); // NOI18N
         lblSubtitulo.setForeground(new java.awt.Color(102, 0, 0));
@@ -96,7 +96,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblSubtitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelPrincipalLayout.createSequentialGroup()
                                 .addGap(75, 75, 75)
@@ -104,11 +104,11 @@ public class VentanaInicio extends javax.swing.JFrame {
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(btnAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(117, 117, 117))
         );

@@ -53,7 +53,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblTitulo" alignment="0" pref="363" max="32767" attributes="0"/>
+                              <Component id="lblTitulo" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblSubtitulo" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -66,12 +66,12 @@
                           <Component id="btnCliente" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="121" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   <Component id="btnAdmin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnSalir" min="-2" pref="88" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
               </Group>
@@ -108,7 +108,7 @@
               <Color blue="0" green="0" red="8b" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Restauran Natys"/>
+            <Property name="text" type="java.lang.String" value="Restaurant Naty&apos;s"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSubtitulo">
