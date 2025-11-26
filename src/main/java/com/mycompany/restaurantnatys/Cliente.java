@@ -35,7 +35,7 @@ class Cliente extends Persona {
 
                 
                 while (!sc.hasNextInt()) {
-                    System.out.println("⚠️ Error: debe ingresar un número válido.");
+                    System.out.println(" Error: debe ingresar un número válido.");
                     System.out.print("Seleccione una opción del menú: ");
                     sc.next(); // limpia entrada 
                 }

@@ -41,7 +41,7 @@ class Menu {
         provPan.agregarIngrediente("Pan perro caliente", 80);
 
         Proveedor provPapas = new Proveedor("Papas San Jorge", "1003");
-        provPapas.agregarIngrediente("Papas criollas", 120);
+        provPapas.agregarIngrediente("Papas a la francesa", 120);
 
         Proveedor provGaseosa = new Proveedor("Bebidas El Refrescón", "1004");
         provGaseosa.agregarIngrediente("Gaseosa cola", 60);
@@ -69,7 +69,7 @@ class Menu {
         productos = new ArrayList<>();
         productos.add(new ItemPedido("Hamburguesa Clasica (Carne de res, Pan, Queso)", 1, 12000)); // provCarne + provPan
         productos.add(new ItemPedido("Perro Caliente", 1, 10000));                                  // provPan
-        productos.add(new ItemPedido("Papas Fritas (Papas criollas)", 1, 8000));                   // provPapas
+        productos.add(new ItemPedido("Papas Fritas (Papas a la francesa)", 1, 8000));                   // provPapas
         productos.add(new ItemPedido("Gaseosa ← (Seleccione y elija sabor)", 1, 4000));            // provGaseosa
         productos.add(new ItemPedido("Nuggets de Pollo (Pollo fresco)", 1, 9000));                 // provPollo
     }

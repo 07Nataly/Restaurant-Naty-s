@@ -25,17 +25,19 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         setTitle("Panel Administrador - Restaurant Naty's");
         getContentPane().setBackground(new java.awt.Color(255, 204, 204));
 
-        // Inicializar cocina y menú (igual que en tu ventana principal)
-        menu = new Menu();
-        cocina = new Cocina();
-        cocina.inicializarInventarioDesdeMenu(menu);
+        //usar cocina y menu
+        menu = RestaurantNatys.menu;
+        cocina = RestaurantNatys.cocina;
+        
+        //actualizar ventana
+        cocina.ventanaAdmin = this;
 
         // Cargar inventario al abrir
         actualizarTablaInventario();
         cargarMovimientos();
     }
     
-    private void actualizarTablaInventario() {
+    public void actualizarTablaInventario() {
     String[] columnas = {"Ingrediente", "Cantidad Disponible"};
     Object[][] datos = new Object[cocina.ingredientesDisponibles.size()][2];
     
@@ -47,7 +49,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     tablaInventario.setModel(new javax.swing.table.DefaultTableModel(datos, columnas));
 }
 
-    private void cargarMovimientos() {
+    public void cargarMovimientos() {
         StringBuilder sb = new StringBuilder();
         for (String mov : RegistroDiario.getMovimientos()) {
             sb.append(mov).append("\n");
@@ -337,7 +339,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.TextArea areaMovimientos;
-    private javax.swing.JButton btnActualizarInventario;
+    public javax.swing.JButton btnActualizarInventario;
     private javax.swing.JButton btnComprar;
     private javax.swing.JButton btnMovimientos;
     private javax.swing.JButton btnReporte;

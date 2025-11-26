@@ -26,9 +26,9 @@ public class VentanPedido extends javax.swing.JFrame {
         setLocationRelativeTo(null); // centramos la ventana
         setTitle("Registro de Cliente y Pedido - Restaurant Naty's");
         
-        menu = new Menu();
-        cocina= new Cocina();
-        cocina.inicializarInventarioDesdeMenu(menu);
+        //usar menu y cocina
+        menu = RestaurantNatys.menu;
+        cocina = RestaurantNatys.cocina;
         
         //Cantidad del pedido
         SpinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
@@ -42,7 +42,7 @@ public class VentanPedido extends javax.swing.JFrame {
         ComboProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {
             "Hamburguesa Clasica (Carne de res, Pan, Queso)",
             "Perro Caliente",
-            "Papas Fritas (Papas criollas)",
+            "Papas Fritas (Papas a la francesa)",
             "Gaseosa ← (Seleccione y elija sabor)",
             "Nuggets de Pollo (Pollo fresco)"
         }));
@@ -350,8 +350,8 @@ public class VentanPedido extends javax.swing.JFrame {
         } else {
             // Producto normal
             int indice = ComboProducto.getSelectedIndex();
-            ItemPedido base = menu.getProductos().get(indice);
-            item = new ItemPedido(base.getNomProducto(), cantidad, base.getPrecioUni());
+            ItemPedido productoDelMenu = menu.getProductos().get(indice);
+            item = new ItemPedido(productoDelMenu.getNomProducto(),cantidad,productoDelMenu.getPrecioUni());       
         }
 
         // Crear o usar pedido actual
@@ -362,8 +362,9 @@ public class VentanPedido extends javax.swing.JFrame {
         pedidoActual.calcularTotal();
 
         cocina.reciPedido(pedidoActual);
-        cocina.marPedList(pedidoActual.getIdPedido(), menu);
-
+        // Descontar inventario 
+        cocina.usarIngredientesPedido(pedidoActual, menu);
+        
         Mesa mesa = new Mesa(1);
         Pago pago = new Pago(1, pedidoActual.getTotal(), "Efectivo");
         pago.generarFactura(pedidoActual, mesa, cliente);
@@ -383,6 +384,8 @@ public class VentanPedido extends javax.swing.JFrame {
         SpinnerCantidad.setValue(1);
         lblSabor.setVisible(false);
         ComboSabor.setVisible(false);
+        
+        
     
     }//GEN-LAST:event_btnPedidoActionPerformed
 

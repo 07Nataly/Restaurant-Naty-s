@@ -40,7 +40,7 @@ class Pago implements Imprimible {
                            " | Método: " + metodoPago + " | Fecha: " + fecha);
     }
 
-    // ✅ Generar factura PDF única por pedido
+    //  Generar factura PDF única por pedido
     public void generarFactura(Pedido pedido, Mesa mesa, Cliente cliente) {
         try {
             // Crear carpeta Facturas si no existe
@@ -61,7 +61,7 @@ class Pago implements Imprimible {
             documento.open();
             
             
-            
+             
             //LOGO 
             try {
                 Image logo = Image.getInstance(ReporteDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));

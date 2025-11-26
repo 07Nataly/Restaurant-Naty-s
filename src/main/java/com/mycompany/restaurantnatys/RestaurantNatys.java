@@ -13,6 +13,15 @@ import java.util.Date;
 
 public class RestaurantNatys {
     
+    //instancias 
+    public static Menu menu = new Menu();
+    public static Cocina cocina = new Cocina();
+    
+    //iniciar inventario
+    static {
+        cocina.inicializarInventarioDesdeMenu(menu);
+    }
+    
     // Método para precios
     public static String formatoPrecio(double precio) {
         return "$" + String.format("%,.0f", precio).replace(",", ".");
@@ -31,12 +40,6 @@ public class RestaurantNatys {
         
         
         Scanner sc = new Scanner(System.in);
-        Menu menu = new Menu();
-        Cocina cocina = new Cocina();
-
-        // Inicializar inventario desde el menú (proveedores)
-        cocina.inicializarInventarioDesdeMenu(menu);
-
         int opcion = 0; // <-- Solucion: inicializada en 0
         
         RegistroDiario.agregarMovimiento("=== INICIO DEL DÍA EN RESTAURANT NATY'S ===");

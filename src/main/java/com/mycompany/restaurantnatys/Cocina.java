@@ -16,6 +16,7 @@ class Cocina {
     private List<Pedido> pedPendientes;
     public ArrayList<String> ingredientesDisponibles;
     public ArrayList<Integer> cantidadesDisponibles;
+    public VentanaAdministrador ventanaAdmin;
 
     public Cocina() {
         pedPendientes = new ArrayList<>();
@@ -109,36 +110,43 @@ class Cocina {
         System.out.println("\nPreparando pedido #" + pedido.getIdPedido() + "...");
 
         for (ItemPedido item : pedido.getListaItems()) {
-            String nombre = item.getNomProducto().toLowerCase().trim();
-            int cantidad = item.getCantidad();
-            boolean suficiente = true;
+            String nombre = item.getNomProducto().toLowerCase();
+            int cant = item.getCantidad();
 
             if (nombre.contains("hamburguesa")) {
-                suficiente &= usarIngrediente("Pan de hamburguesa", cantidad);
-                suficiente &= usarIngrediente("Carne de res", cantidad);
-                suficiente &= usarIngrediente("Queso", cantidad);
-            } else if (nombre.contains("perro")) {
-                suficiente &= usarIngrediente("Pan perro caliente", cantidad);
-                suficiente &= usarIngrediente("Salchicha", cantidad);
-            } else if (nombre.contains("papa")) {
-                suficiente &= usarIngrediente("Papas criollas", cantidad);
-            } else if (nombre.contains("gaseosa")) { 
-                if (nombre.contains("cola")) usarIngrediente("Gaseosa cola", cantidad);
-                else if (nombre.contains("manzana")) usarIngrediente("Gaseosa manzana", cantidad);
-                else if (nombre.contains("naranja")) usarIngrediente("Gaseosa naranja", cantidad);
-                else usarIngrediente("Gaseosa cola", cantidad);
-            } else if (nombre.contains("nugget") || nombre.contains("pollo")) {
-                suficiente &= usarIngrediente("Pollo fresco", cantidad);
-            } else {
-                System.out.println("Producto '" + item.getNomProducto() + "' no tiene ingredientes definidos.");
+                usarIngrediente("Pan de hamburguesa", cant);
+                usarIngrediente("Carne de res", cant);
+                usarIngrediente("Tocino",cant);
+                usarIngrediente("Queso", cant);
             }
-
-            // Si faltan ingredientes, el pedido no se puede preparar
-            if (!suficiente) {
-                System.out.println(" No se puede preparar el pedido. Faltan ingredientes.");
-                return;
+            else if (nombre.contains("perro")) {
+                usarIngrediente("Pan perro caliente", cant);
+                usarIngrediente("Salchicha", cant);
+            }
+            else if (nombre.contains("papas")) {
+                usarIngrediente("Papas a la francesa", cant);
+            }
+            else if (nombre.contains("gaseosa")) {
+                String sabor = nombre.contains("cola") ? "Gaseosa cola" :
+                              nombre.contains("manzana") ? "Gaseosa manzana" :
+                              nombre.contains("naranja") ? "Gaseosa naranja" : "Gaseosa cola";
+                usarIngrediente(sabor, cant);
+            }
+            else if (nombre.contains("nuggets") || nombre.contains("pollo")) {
+                usarIngrediente("Pollo fresco", cant);
             }
         }
+
+        // Actualiza la ventana del admin automáticamente
+        java.awt.EventQueue.invokeLater(() -> {
+            for (java.awt.Window w : java.awt.Window.getWindows()) {
+                if (w instanceof VentanaAdministrador) {
+                    ((VentanaAdministrador) w).actualizarTablaInventario();
+                    ((VentanaAdministrador) w).cargarMovimientos();
+                }
+            }
+        });
+        
 
         System.out.println("\nInventario actualizado despues del pedido:");
         mostrarInventario();
