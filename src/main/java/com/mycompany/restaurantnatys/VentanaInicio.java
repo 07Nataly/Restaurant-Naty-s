@@ -53,7 +53,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         lblSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSubtitulo.setText("Comida Rapida");
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/restaurantnatys/foto.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/restaurantnatys/logo (1).png"))); // NOI18N
         lblImagen.setText("jLabel1");
 
         btnCliente.setBackground(new java.awt.Color(139, 0, 0));
@@ -123,7 +123,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(lblImagen)
                 .addGap(18, 18, 18)
                 .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdmin))

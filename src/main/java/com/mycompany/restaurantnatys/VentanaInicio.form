@@ -88,7 +88,7 @@
                   <Component id="lblImagen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnCliente" min="-2" pref="81" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnSalir" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="btnAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -126,7 +126,7 @@
         <Component class="javax.swing.JLabel" name="lblImagen">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/mycompany/restaurantnatys/foto.png"/>
+              <Image iconType="3" name="/com/mycompany/restaurantnatys/logo (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
