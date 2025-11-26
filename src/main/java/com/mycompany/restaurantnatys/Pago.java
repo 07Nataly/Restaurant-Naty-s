@@ -64,7 +64,7 @@ class Pago implements Imprimible {
              
             //LOGO 
             try {
-                Image logo = Image.getInstance(ReporteDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
+                Image logo = Image.getInstance(InventarioDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
                 logo.scaleAbsolute(90f, 90f);
                 logo.setAbsolutePosition(PageSize.A4.getWidth() - 140, PageSize.A4.getHeight() - 115);
                 writer.getDirectContentUnder().addImage(logo);

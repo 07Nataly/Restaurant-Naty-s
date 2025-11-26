@@ -8,11 +8,15 @@ package com.mycompany.restaurantnatys;
  *
  * @author USUARIO
  */
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
 
+
 public class RestaurantNatys {
     
+    
+    public static ArrayList<Pedido> pedidosDelDia = new ArrayList<>();
     //instancias 
     public static Menu menu = new Menu();
     public static Cocina cocina = new Cocina();
@@ -150,8 +154,8 @@ public class RestaurantNatys {
 
                 case 3:
                     
-                    // Generar reporte diario
-                    ReporteDiario.generarReporteDiario(cocina);
+                    // Generar inventario diario
+                    InventarioDiario.generarReporteDiario(cocina);
 
                     System.out.println("\nGracias por visitar Restaurant Natys. Vuelva pronto!");
                     break;

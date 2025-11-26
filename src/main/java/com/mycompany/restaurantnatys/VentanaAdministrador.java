@@ -76,11 +76,12 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         tablaInventario = new javax.swing.JTable();
         btnActualizarInventario = new javax.swing.JButton();
         btnComprar = new javax.swing.JButton();
-        btnReporte = new javax.swing.JButton();
+        btnInventario = new javax.swing.JButton();
         btnMovimientos = new javax.swing.JButton();
         btnSalirAdmin = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         areaMovimientos = new java.awt.TextArea();
+        btnReportePedidos = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,14 +145,14 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        btnReporte.setBackground(new java.awt.Color(255, 51, 102));
-        btnReporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnReporte.setText("GENERAR REPORTE DIARIO");
-        btnReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+        btnInventario.setBackground(new java.awt.Color(255, 51, 102));
+        btnInventario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnInventario.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventario.setText("GENERAR INVENTARIO DIARIO");
+        btnInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
+                btnInventarioActionPerformed(evt);
             }
         });
 
@@ -176,20 +177,31 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         areaMovimientos.setText("areaMovimientos.setLineWrap(true);\nareaMovimientos.setWrapStyleWord(true);\nareaMovimientos.setCaretPosition(0);");
         jScrollPane3.setViewportView(areaMovimientos);
 
+        btnReportePedidos.setBackground(new java.awt.Color(255, 51, 102));
+        btnReportePedidos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnReportePedidos.setForeground(new java.awt.Color(255, 255, 255));
+        btnReportePedidos.setText("GENERAR REPORTE PEDIDOS");
+        btnReportePedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportePedidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                    .addComponent(btnInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReportePedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnActualizarInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(61, 61, 61)))
                         .addGap(154, 154, 154)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -197,11 +209,8 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                                 .addGap(151, 151, 151))
                             .addComponent(jScrollPane3))
                         .addGap(57, 57, 57))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(btnComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(234, 234, 234)
                         .addComponent(btnSalirAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(185, 185, 185))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -221,18 +230,24 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnMovimientos)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalirAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalirAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReportePedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,19 +303,24 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnComprarActionPerformed
 
-    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+    private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
         // TODO add your handling code here:
-        ReporteDiario.generarReporteDiario(cocina);
+        InventarioDiario.generarReporteDiario(cocina);
         JOptionPane.showMessageDialog(this, 
-            "Reporte diario generado correctamente!\nGuardado en la carpeta 'Registros_Diarios'",
+            "Inventario diario generado correctamente!\nGuardado en la carpeta 'Inventarios_Diarios'",
             "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnReporteActionPerformed
+    }//GEN-LAST:event_btnInventarioActionPerformed
 
     private void btnSalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAdminActionPerformed
         // TODO add your handling code here:
         new VentanaInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirAdminActionPerformed
+
+    private void btnReportePedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportePedidosActionPerformed
+        // TODO add your handling code here:
+        ReportePedidosDiarios.generarReportePedidosDiarios();
+    }//GEN-LAST:event_btnReportePedidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,8 +361,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private java.awt.TextArea areaMovimientos;
     public javax.swing.JButton btnActualizarInventario;
     private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnInventario;
     private javax.swing.JButton btnMovimientos;
-    private javax.swing.JButton btnReporte;
+    private javax.swing.JButton btnReportePedidos;
     private javax.swing.JButton btnSalirAdmin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

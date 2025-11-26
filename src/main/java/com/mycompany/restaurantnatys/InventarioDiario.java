@@ -20,21 +20,21 @@ import java.util.Date;
 
 import com.itextpdf.text.Image;
 
-public class ReporteDiario {
+public class InventarioDiario {
 
     public static void generarReporteDiario(Cocina cocina) {
         try {
             // ====== 1. CREAR CARPETA AUTOMÁTICAMENTE ======
-            File carpeta = new File("Registros_Diarios");
+            File carpeta = new File("Inventarios_Diarios");
             if (!carpeta.exists()) {
                 carpeta.mkdir();
-                System.out.println("Carpeta 'Registros_Diarios' creada automáticamente.");
+                System.out.println("Carpeta 'Inventarios_Diarios' creada automáticamente.");
             }
 
             // ====== 2. NOMBRE ÚNICO CON FECHA + HORA + MINUTO + SEGUNDO ======
             String fecha = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
             String hora = new SimpleDateFormat("HH-mm-ss").format(new Date());
-            String nombreArchivo = "Registros_Diarios/Reporte_Diario_" + fecha + "_a_las_" + hora + ".pdf";
+            String nombreArchivo = "Inventarios_Diarios/Inventario_Diario_" + fecha + "_a_las_" + hora + ".pdf";
 
             // ====== 3. GENERAR EL PDF ======
             Document documento = new Document(PageSize.A4, 50, 50, 90, 70); // Margen superior
@@ -43,7 +43,7 @@ public class ReporteDiario {
 
             //Logo
             try {
-                Image logo = Image.getInstance(ReporteDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
+                Image logo = Image.getInstance(InventarioDiario.class.getResource("/com/mycompany/restaurantnatys/logo.png"));
                 logo.scaleAbsolute(90f, 90f);//tamaño logo
                 //posicion
                 logo.setAbsolutePosition(PageSize.A4.getWidth() - 140, PageSize.A4.getHeight() - 115);
@@ -56,7 +56,7 @@ public class ReporteDiario {
             Font subtitulo = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
             Font normal = new Font(Font.FontFamily.HELVETICA, 11);
 
-            Paragraph t = new Paragraph("REPORTE DIARIO - RESTAURANT NATY'S", titulo);
+            Paragraph t = new Paragraph("INVENTARIO DIARIO - RESTAURANT NATY'S", titulo);
             t.setAlignment(Element.ALIGN_CENTER);
             documento.add(t);
 
@@ -98,11 +98,11 @@ public class ReporteDiario {
             documento.add(cierre);
 
             documento.close();
-            System.out.println("\n Reporte diario generado: " + nombreArchivo);
+            System.out.println("\n Inventario diario generado: " + nombreArchivo);
             
 
             
-            System.out.println("\n¡REPORTE DIARIO GENERADO CON ÉXITO!"+ nombreArchivo);
+            System.out.println("\n¡INVENTARIO DIARIO GENERADO CON EXITO!"+ nombreArchivo);
             System.out.println("Guardado en: " + nombreArchivo);
             System.out.println("Total de movimientos registrados hoy: " + RegistroDiario.getMovimientos().size());
 
