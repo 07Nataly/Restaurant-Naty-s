@@ -214,3 +214,11 @@ Pedido #1 - Cliente: Nataly - Total: $16000.0 - Método: Efectivo - Fecha: Wed No
 ---------------------------------------------------------
 Pedido #2 - Cliente: Lexmar - Total: $14000.0 - Método: Efectivo - Fecha: Wed Nov 26 16:52:51 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Luz - Total: $102000.0 - Método: Efectivo - Fecha: Wed Nov 26 18:42:22 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: NAT - Total: $26000.0 - Método: Efectivo - Fecha: Wed Nov 26 18:49:25 COT 2025
+---------------------------------------------------------
+Pedido #2 - Cliente: DDDD - Total: $12000.0 - Método: Efectivo - Fecha: Wed Nov 26 18:49:46 COT 2025
+---------------------------------------------------------
+Pedido #1 - Cliente: nat - Total: $18000.0 - Método: Efectivo - Fecha: Wed Nov 26 18:56:24 COT 2025
+---------------------------------------------------------
