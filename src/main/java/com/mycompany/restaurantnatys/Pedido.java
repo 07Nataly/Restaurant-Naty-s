@@ -17,10 +17,10 @@ import java.util.List;
     
     public static int contadorPedidos = 1; // contador automático
     private int idPedido;
-    private List<ItemPedido> listaItems; // Productos del pedido
+    private List<ItemPedido> listaItems; // Composicion
     private double total;
     private String estado;
-    private Cliente cliente;
+    private Cliente cliente; //Asociacion
 
    public Pedido(Cliente cliente) {
         this.idPedido = contadorPedidos++;  // ID automatico

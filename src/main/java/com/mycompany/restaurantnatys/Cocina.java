@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class Cocina {
-    private List<Pedido> pedPendientes;
+    private List<Pedido> pedPendientes; //Agregacion
     public ArrayList<String> ingredientesDisponibles;
     public ArrayList<Integer> cantidadesDisponibles;
     public VentanaAdministrador ventanaAdmin;

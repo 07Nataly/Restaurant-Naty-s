@@ -11,7 +11,7 @@ package com.mycompany.restaurantnatys;
 class Mesa {
     private int numeroMesa;
     private String estado;
-    private Pedido pedidoActual;
+    private Pedido pedidoActual; // Asociacion
 
     //Constructor
     public Mesa(int numeroMesa) {

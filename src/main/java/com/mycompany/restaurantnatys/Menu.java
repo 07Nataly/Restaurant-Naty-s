@@ -15,7 +15,7 @@ import java.util.List;
 
 class Menu {
     private List<ItemPedido> productos;
-    private List<Proveedor> proveedores;
+    private List<Proveedor> proveedores; // Agregacion 
 
     public List<ItemPedido> getProductos() {
         return productos;

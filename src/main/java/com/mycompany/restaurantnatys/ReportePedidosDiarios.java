@@ -19,20 +19,25 @@ import javax.swing.JOptionPane;
 public class ReportePedidosDiarios {
 
     public static void generarReportePedidosDiarios() {
+        
+        //crear nueva carpeta
         try {
             File carpeta = new File("Pedidos_Diarios");
             if (!carpeta.exists()) {
                 carpeta.mkdir();
             }
-
+            
+            //datos del archivo
             String fecha = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
             String hora = new SimpleDateFormat("HH-mm-ss").format(new Date());
             String nombreArchivo = "Pedidos_Diarios/Pedidos_del_" + fecha + "_a_las_" + hora + ".pdf";
-
+            
+            //crear pdf
             Document documento = new Document(PageSize.A4, 50, 50, 90, 70);
             PdfWriter.getInstance(documento, new FileOutputStream(nombreArchivo));
             documento.open();
 
+            //tipo de fuente
             Font titulo = new Font(Font.FontFamily.HELVETICA, 26, Font.BOLD, new BaseColor(139, 0, 0));
             Font subtitulo = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD);
             Font normal = new Font(Font.FontFamily.HELVETICA, 11);
@@ -55,10 +60,12 @@ public class ReportePedidosDiarios {
             p2.setAlignment(Element.ALIGN_CENTER);
             documento.add(p2);
 
+            //datos del pdf
             documento.add(new Paragraph("Fecha: " + new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(new Date()), normal));
             documento.add(new Paragraph("Generado: " + new SimpleDateFormat("HH:mm:ss").format(new Date()), normal));
             documento.add(Chunk.NEWLINE);
 
+            
             if (RestaurantNatys.pedidosDelDia == null || RestaurantNatys.pedidosDelDia.isEmpty()) {
                 Paragraph vacio = new Paragraph("No se registraron pedidos hoy.", normal);
                 vacio.setAlignment(Element.ALIGN_CENTER);

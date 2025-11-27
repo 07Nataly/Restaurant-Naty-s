@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class RestaurantNatys {
     
-    
+    //guarda pedidos del dia
     public static ArrayList<Pedido> pedidosDelDia = new ArrayList<>();
     //instancias 
     public static Menu menu = new Menu();
@@ -33,7 +33,7 @@ public class RestaurantNatys {
 
     public static void main(String[] args) {
         
-        
+        //ventana grafica
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaInicio().setVisible(true);
@@ -44,8 +44,9 @@ public class RestaurantNatys {
         
         
         Scanner sc = new Scanner(System.in);
-        int opcion = 0; // <-- Solucion: inicializada en 0
+        int opcion = 0; //  inicializada en 0
         
+        //Se guarda registro comienzo dia
         RegistroDiario.agregarMovimiento("=== INICIO DEL DÍA EN RESTAURANT NATY'S ===");
 
         do {

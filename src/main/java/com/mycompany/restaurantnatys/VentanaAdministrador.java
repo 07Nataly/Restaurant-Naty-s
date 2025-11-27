@@ -297,22 +297,30 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Lista de proveedores
         String[] proveedores = new String[menu.getProveedores().size()];
+        //recorre lista
         for (int i = 0; i < proveedores.length; i++) {
             proveedores[i] = menu.getProveedores().get(i).getNombre();
         }
 
+        //ventana emergente
         String seleccionado = (String) JOptionPane.showInputDialog(
             this,
             "Seleccione un proveedor para comprar:",
             "Comprar Ingredientes",
             JOptionPane.QUESTION_MESSAGE,
             null,
-            proveedores,
-            proveedores[0]
+            proveedores, //lista de opciones
+            proveedores[0] //preseleccionada
         );
+        
 
+        //
         if (seleccionado != null) {
+            
+            //recorrer proveedores
             for (Proveedor p : menu.getProveedores()) {
+                
+                // verifica nombre proveedor
                 if (p.getNombre().equals(seleccionado)) {
                     cocina.recibirIngredientes(p);
                     RegistroDiario.agregarMovimiento("COMPRA - Proveedor: " + p.getNombre());
@@ -327,7 +335,9 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     private void btnInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventarioActionPerformed
         // TODO add your handling code here:
+        //genera inventario
         InventarioDiario.generarReporteDiario(cocina);
+        //ventana emergente
         JOptionPane.showMessageDialog(this, 
             "Inventario diario generado correctamente!\nGuardado en la carpeta 'Inventarios_Diarios'",
             "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -335,12 +345,14 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     private void btnSalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAdminActionPerformed
         // TODO add your handling code here:
+        //regresa ventana inicio
         new VentanaInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirAdminActionPerformed
 
     private void btnReportePedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportePedidosActionPerformed
         // TODO add your handling code here:
+        //genera reporte diario
         ReportePedidosDiarios.generarReportePedidosDiarios();
     }//GEN-LAST:event_btnReportePedidosActionPerformed
 

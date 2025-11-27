@@ -397,34 +397,34 @@ public class VentanPedido extends javax.swing.JFrame {
         // TODO add your handling code here:                                           
            String seleccionado = ComboProducto.getSelectedItem().toString();
 
-    // Mostrar/ocultar sabores para gaseosa
-    if (seleccionado.toLowerCase().contains("gaseosa")) {
-        lblSabor.setVisible(true);
-        ComboSabor.setVisible(true);
-    } else {
-        lblSabor.setVisible(false);
-        ComboSabor.setVisible(false);
-    }
+        // Mostrar/ocultar sabores para gaseosa
+        if (seleccionado.toLowerCase().contains("gaseosa")) {
+            lblSabor.setVisible(true);
+            ComboSabor.setVisible(true);
+        } else {
+            lblSabor.setVisible(false);
+            ComboSabor.setVisible(false);
+        }
 
-    // CAMBIAR LA IMAGEN SEGÚN EL PRODUCTO SELECCIONADO
-    String rutaImagen = "/com/mycompany/restaurantnatys/";
-    
-    if (seleccionado.contains("Hamburguesa")) {
-        rutaImagen += "hamburguesa.png";
-    } else if (seleccionado.contains("Perro Caliente")) {
-        rutaImagen += "perro.png";
-    } else if (seleccionado.contains("Papas Fritas")) {
-        rutaImagen += "papas.png";
-    } else if (seleccionado.contains("Gaseosa")) {
-        rutaImagen += "gaseosa.png";
-    } else if (seleccionado.contains("Nuggets")) {
-        rutaImagen += "nuggets.png";
-    } else {
-        rutaImagen += "foto.png"; // imagen por defecto
-    }
+        // CAMBIAR LA IMAGEN SEGÚN EL PRODUCTO SELECCIONADO
+        String rutaImagen = "/com/mycompany/restaurantnatys/";
 
-    // Aplicar la nueva imagen
-    lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource(rutaImagen)));
+        if (seleccionado.contains("Hamburguesa")) {
+            rutaImagen += "hamburguesa.png";
+        } else if (seleccionado.contains("Perro Caliente")) {
+            rutaImagen += "perro.png";
+        } else if (seleccionado.contains("Papas Fritas")) {
+            rutaImagen += "papas.png";
+        } else if (seleccionado.contains("Gaseosa")) {
+            rutaImagen += "gaseosa.png";
+        } else if (seleccionado.contains("Nuggets")) {
+            rutaImagen += "nuggets.png";
+        } else {
+            rutaImagen += "foto.png"; // imagen por defecto
+        }
+
+        // Aplicar la nueva imagen
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource(rutaImagen)));
     }//GEN-LAST:event_ComboProductoActionPerformed
 
     private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
@@ -434,7 +434,7 @@ public class VentanPedido extends javax.swing.JFrame {
         if (cliente == null) {
         JOptionPane.showMessageDialog(this, "Primero registre al cliente.");
         return;
-    }
+        }
 
         String productoTexto = ComboProducto.getSelectedItem().toString();
         int cantidad = (int) SpinnerCantidad.getValue();
@@ -463,10 +463,6 @@ public class VentanPedido extends javax.swing.JFrame {
         // Descontar inventario 
         cocina.usarIngredientesPedido(pedidoActual, menu);
         
-        /*Mesa mesa = new Mesa(1);
-        Pago pago = new Pago(1, pedidoActual.getTotal(), "Efectivo");
-        pago.generarFactura(pedidoActual, mesa, cliente);
-        pago.guardarEnArchivo(pedidoActual, cliente);*/
 
         //panel de pedido
         JOptionPane.showMessageDialog(this,
@@ -500,6 +496,7 @@ public class VentanPedido extends javax.swing.JFrame {
         JOptionPane.YES_NO_OPTION, 
         JOptionPane.INFORMATION_MESSAGE);
 
+        //regresa ventana inicio
         if (opcion == JOptionPane.YES_OPTION) {
             new VentanaInicio().setVisible(true);
             this.dispose();
@@ -509,6 +506,7 @@ public class VentanPedido extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
+        //ventana si no agrega pedido
         if (cliente == null || pedidoActual == null || pedidoActual.getListaItems().isEmpty()) {
         JOptionPane.showMessageDialog(this, "No hay pedido para cobrar.");
         return;
@@ -520,7 +518,7 @@ public class VentanPedido extends javax.swing.JFrame {
         pago.generarFactura(pedidoActual, mesa, cliente);
         pago.guardarEnArchivo(pedidoActual, cliente);
 
-        // ¡GUARDAR EL PEDIDO PARA EL REPORTE DEL DÍA!
+        // GUARDAR EL PEDIDO PARA EL REPORTE DEL DÍA
         RestaurantNatys.pedidosDelDia.add(pedidoActual);
 
         JOptionPane.showMessageDialog(this,
@@ -529,7 +527,7 @@ public class VentanPedido extends javax.swing.JFrame {
             "Total cobrado: " + RestaurantNatys.formatoPrecio(pedidoActual.getTotal()),
             "Factura Final Generada", JOptionPane.INFORMATION_MESSAGE);
 
-        // Reiniciar para el próximo cliente
+        // Reiniciar para el proximo cliente
         cliente = null;
         pedidoActual = null;
         btnRegistrarCliente.setEnabled(true);

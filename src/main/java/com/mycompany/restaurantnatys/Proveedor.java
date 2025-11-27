@@ -26,6 +26,7 @@ class Proveedor extends Persona {
         cantidades.add(cantidad);
     } 
 
+    //polimorfismo
     @Override
     public void mostrarInfo() {
         System.out.println("\nProveedor: " + nombre + " | Documento: " + documento);

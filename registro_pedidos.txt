@@ -222,3 +222,5 @@ Pedido #2 - Cliente: DDDD - Total: $12000.0 - Método: Efectivo - Fecha: Wed Nov 
 ---------------------------------------------------------
 Pedido #1 - Cliente: nat - Total: $18000.0 - Método: Efectivo - Fecha: Wed Nov 26 18:56:24 COT 2025
 ---------------------------------------------------------
+Pedido #1 - Cliente: Victor - Total: $16000.0 - Método: Efectivo - Fecha: Wed Nov 26 19:13:58 COT 2025
+---------------------------------------------------------

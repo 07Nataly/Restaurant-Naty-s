@@ -146,6 +146,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
+        //contraseña ingreso admin
         String contraseña = JOptionPane.showInputDialog(
         this, 
         "Ingrese la contraseña de administrador:", 
@@ -153,15 +154,16 @@ public class VentanaInicio extends javax.swing.JFrame {
         JOptionPane.WARNING_MESSAGE
     );
 
-    if (contraseña != null && contraseña.equals("admin123")) {
-        new VentanaAdministrador().setVisible(true);
-        this.dispose();
-    } else if (contraseña != null) {
-        JOptionPane.showMessageDialog(this, 
-            "Contraseña incorrecta", 
-            "Acceso Denegado", 
-            JOptionPane.ERROR_MESSAGE);
-    }
+        //comprpbar contraseña
+        if (contraseña != null && contraseña.equals("admin123")) {
+            new VentanaAdministrador().setVisible(true);
+            this.dispose();
+        } else if (contraseña != null) {
+            JOptionPane.showMessageDialog(this, 
+                "Contraseña incorrecta", 
+                "Acceso Denegado", 
+                JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
